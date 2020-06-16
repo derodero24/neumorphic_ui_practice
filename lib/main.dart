@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       themeMode: ThemeMode.light,
       theme: const NeumorphicThemeData(
-        baseColor: Color(0xFFFFFFFF),
+//        baseColor: Color(0xFFFFFFFF),
+        baseColor: Color(0xE9F0F6FF),
         lightSource: LightSource.topLeft,
         depth: 3,
       ),
