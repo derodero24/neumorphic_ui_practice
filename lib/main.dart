@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 void main() => runApp(MyApp());
@@ -13,12 +14,12 @@ class MyApp extends StatelessWidget {
       theme: const NeumorphicThemeData(
         baseColor: Color(0xFFFFFFFF),
         lightSource: LightSource.topLeft,
-        depth: 10,
+        depth: 3,
       ),
       darkTheme: const NeumorphicThemeData(
         baseColor: Color(0xFF3E3E3E),
         lightSource: LightSource.topLeft,
-        depth: 6,
+        depth: 3,
       ),
       home: MyHomePage(),
     );
@@ -29,6 +30,11 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: NeumorphicTheme.baseColor(context),
+      floatingActionButton: NeumorphicFloatingActionButton(
+        child: Icon(Icons.add, size: 30, color: _iconColor(context)),
+        onPressed: () {},
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -64,9 +70,20 @@ class MyHomePage extends StatelessWidget {
               child: Text('Toggle Theme',
                   style: TextStyle(color: _textColor(context))),
             ),
-//            NeumorphicButton(
-//              margin: const EdgeInsets.only(top: 12),
-//            )
+            NeumorphicButton(
+              margin: const EdgeInsets.only(top: 12),
+              onPressed: () {},
+              style: NeumorphicStyle(
+                shape: NeumorphicShape.flat,
+                boxShape:
+                    NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
+              ),
+              padding: const EdgeInsets.all(12),
+              child: Text(
+                'Go to full sample',
+                style: TextStyle(color: _textColor(context)),
+              ),
+            )
           ],
         ),
       ),
